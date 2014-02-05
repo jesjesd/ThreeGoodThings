@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+#This is the dynamic path - meaning you should not be hardcoding ANYTHING
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -27,8 +28,19 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+#templates
+#designates templates directory within the tgt directory...NOT (tgt/tgt/templates)... THIS (tgt/templates)
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 
+#selects the directory for Python to parse templates.
+TEMPLATE_DIRS = (
+    TEMPLATE_PATH,
+)
+
+
+
+# Application definition
+#Make sure to add any programs you include...for example, we added our base TGTapp and will probably add the app that connects to facebook
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,6 +48,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'TGTapp'
 )
 
 MIDDLEWARE_CLASSES = (

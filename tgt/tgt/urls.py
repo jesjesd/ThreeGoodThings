@@ -9,4 +9,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    #this designates base url for TGTapp
+    url(r'^$', include('TGTapp.urls')),
 )
